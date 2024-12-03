@@ -25,6 +25,7 @@ namespace QLBanHang.View
             employee = employ;
             PhanQuyen();
         }
+        
         #region Employee
         //Phân quyền
         void PhanQuyen()
@@ -1417,7 +1418,6 @@ namespace QLBanHang.View
             }
         }
 
-        #endregion
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
@@ -1458,19 +1458,21 @@ namespace QLBanHang.View
             {
                 dgvProductCart.Rows.Add(product.ProductID, product.ProductName, product.CategoryName, product.SupplierName, product.ProductPrice, product.ProductQuantity, product.GetTotalPrice());
             }
-
         }
 
         private void btnNhapSanPham_Click(object sender, EventArgs e)
         {
             DisplayButton(btnNhapSanPham);
             DisplayPanel(pnDanhSachHoaDonNhap);
+            LoadDataPurchaseInvoice();
+        }
+        void LoadDataPurchaseInvoice()
+        {
             dbPurchaseInvoice dbPurchaseInvoice = new dbPurchaseInvoice();
             DataSet ds = dbPurchaseInvoice.GetPurchaseInvoice();
             dgvPurchaseInvoice.DataSource = null;
             dgvPurchaseInvoice.DataSource = ds.Tables[0];
         }
-
         private void btnNhapHang_Click(object sender, EventArgs e)
         {
             pnNhapSanPham.Visible = true;
@@ -1501,39 +1503,6 @@ namespace QLBanHang.View
         private void txtProductNameInvoice_TextChanged(object sender, EventArgs e)
         {
             lbCheckProductNameInvoice.Visible = false;
-
-
-            //// Lấy giá trị tên sản phẩm từ TextBox
-            //string productName = txtProductNameInvoice.Text.Trim();
-
-            //if (!string.IsNullOrEmpty(productName))
-            //{
-            //    // Tạo đối tượng dbProduct và gọi phương thức lấy dữ liệu
-            //    dbProduct dbProduct = new dbProduct();
-            //    DataSet ds = dbProduct.GetProductCategoySupplier();
-
-            //    // Kiểm tra nếu DataSet có dữ liệu
-            //    if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
-            //    {
-            //        // Lọc DataTable theo tên sản phẩm
-            //        DataRow[] foundRows = ds.Tables[0].Select("ProductName LIKE '%" + productName + "%'");
-
-            //        // Nếu có kết quả tìm thấy
-            //        if (foundRows.Length > 0)
-            //        {
-            //            DataRow selectedRow = foundRows[0]; // Chọn dòng đầu tiên (hoặc có thể sử dụng vòng lặp nếu muốn nhiều sản phẩm)
-
-            //            // Cập nhật các TextBox và PictureBox với thông tin sản phẩm
-            //            txtProductCategoryName.Text = selectedRow["CategoryName"].ToString();
-            //            txtProductSupplierName.Text = selectedRow["SupplierName"].ToString();
-
-            //            // Kiểm tra nếu có hình ảnh
-            //            string productImagePath = selectedRow["ProductImage"].ToString();
-            //            ptbProductImageInvoice.Image = Image.FromFile(productImagePath);
-            //        }
-            //    }
-            //}
-
         }
         private void cboProductID_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1558,10 +1527,6 @@ namespace QLBanHang.View
                     txtProductSupplierName.Text = selectedRow["SupplierName"].ToString();
                     ptbProductImageInvoice.Image = Image.FromFile(selectedRow["ProductImage"].ToString());
                 }
-            }
-            else
-            {
-                MessageBox.Show("Không có dữ liệu sản phẩm.");
             }
         }
 
@@ -1632,6 +1597,12 @@ namespace QLBanHang.View
             dbPurchaseInvoice dbPurchaseInvoice = new dbPurchaseInvoice();
             dbInvoiceDetails dbInvoiceDetails = new dbInvoiceDetails();
             dbProduct dbProduct = new dbProduct();
+            Product product = new Product();
+            DataSet ds = dbProduct.GetProduct();
+            DataSet dataSet = dbPurchaseInvoice.GetPurchaseInvoice();
+            foreach(DataRow row in dataSet.Tables[0].Rows)
+            {
+            }
             decimal totalPrice = 0;
             foreach (DataGridViewRow row in dgvProductCart.Rows)
             {
@@ -1642,23 +1613,359 @@ namespace QLBanHang.View
                      totalPrice += decimal.Parse(cellValue.ToString());
                 }
             }
-            Console.WriteLine("GetTotalPrice: " + totalPrice);
+            // thêm hóa đơn nhập sản phẩm 
             dbPurchaseInvoice.InsertPurchaseInvoice(txtPurchaseInvoiceID.Text, employee.Employeeid, datePurchaseInvoice.Value, totalPrice);
             foreach (DataGridViewRow row in dgvProductCart.Rows)
             {
                 if(!row.IsNewRow)
                 {
-                    Console.WriteLine("ID: " + txtPurchaseInvoiceID.Text);
-                    Console.WriteLine("product: " + row.Cells[0].Value.ToString());
-                    Console.WriteLine("quantity: " + int.Parse(row.Cells["ProductQuantity"].Value.ToString()));
-                    Console.WriteLine("price: " + decimal.Parse(row.Cells["ProductPrice"].Value.ToString()));
+                    DataRow foundRow = null;
+                    foreach (DataRow dataRow in ds.Tables[0].Rows)
+                    {
+                        if (dataRow["ProductID"].ToString().Equals(row.Cells["ProductID"].Value.ToString())){
+                            foundRow = dataRow;
+                            break;
+                        }
+                    }
+                    if (foundRow != null)
+                    {
+                        product.ProductID = foundRow["ProductID"].ToString();
+                        product.ProductQuantity = int.Parse(foundRow["ProductQuantity"].ToString()) + int.Parse(row.Cells["ProductQuantity"].Value.ToString());
+                        dbProduct.UpdateProductQuantity(row.Cells["ProductID"].Value.ToString(), product.ProductQuantity);
+                    }
                     dbInvoiceDetails.InsertInvoiceDetail(txtPurchaseInvoiceID.Text, row.Cells["ProductID"].Value.ToString(), int.Parse(row.Cells["ProductQuantity"].Value.ToString()), decimal.Parse(row.Cells["ProductPrice"].Value.ToString()));
-                    dbProduct.UpdateProductQuantity(row.Cells["ProductID"].Value.ToString(), int.Parse(row.Cells["ProductQuantity"].Value.ToString()));
+                    
                 }
             }
             MessageBox.Show("Nhập sản phẩm thành công!", "Thông báo");
         }
 
-        
+        private void dgvPurchaseInvoice_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(dgvPurchaseInvoice.Rows.Count > 0)
+            {
+                pnHienThiChiTietHoaDonNhap.BringToFront();
+                pnHienThiChiTietHoaDonNhap.Visible = true;
+                dbInvoiceDetails dbInvoiceDetails = new dbInvoiceDetails();
+                
+                DataSet ds = dbInvoiceDetails.GetPurchaseInvoiceDetail(dgvPurchaseInvoice.Rows[e.RowIndex].Cells[0].Value.ToString());
+                dgvHienThiChiTietHoaDonNhap.DataSource = null;
+                dgvHienThiChiTietHoaDonNhap.DataSource = ds.Tables[0];
+                txtMaHDNhap.Text = dgvPurchaseInvoice.Rows[e.RowIndex].Cells[0].Value.ToString();
+            }
+        }
+
+        private void ptbHide_Click(object sender, EventArgs e)
+        {
+            pnNhapSanPham.Visible = false;
+            LoadDataPurchaseInvoice();
+        }
+
+        private void ptbHidepnInvoiceDetail_Click(object sender, EventArgs e)
+        {
+            pnHienThiChiTietHoaDonNhap.Visible = false;
+            LoadDataPurchaseInvoice();
+        }
+        #endregion
+        #region Bán hàng
+        bool CheckAddShoppingCart()
+        {
+            dbProduct dbProduct = new dbProduct();
+            DataSet ds = dbProduct.GetProductCategoySupplierStatus();
+            
+            if (string.IsNullOrEmpty(txtSellID.Text))
+            {
+                lbCheckSellID.Visible = true;
+                lbCheckSellID.ForeColor = Color.Red;
+                lbCheckSellID.Text = "Vui lòng nhập mã hóa đơn";
+                return false;
+            }
+            if (!int.TryParse(txtSellQuantity.Text, out int quatity))
+            {
+                lbCheckSellQuantity.Text = "Vui lòng nhập đúng số";
+                lbCheckSellQuantity.ForeColor = Color.Red;
+                lbCheckSellQuantity.Visible = true;
+                return false;
+            }
+            if (quatity < 0)
+            {
+                lbCheckSellQuantity.Text = "Vui lòng nhập số dương";
+                lbCheckSellQuantity.ForeColor = Color.Red;
+                lbCheckSellQuantity.Visible = true;
+                return false;
+            }
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                if (quatity > int.Parse(row["ProductQuantity"].ToString()))
+                {
+                    lbCheckSellQuantity.Text = "Không đủ số lượng sản phẩm trong kho";
+                    lbCheckSellQuantity.ForeColor = Color.Red;
+                    lbCheckSellQuantity.Visible = true;
+                    return false;
+                }
+            }
+            return true;
+
+        }
+        void LoadDataSell()
+        {
+            dbSell dbSell = new dbSell();
+            DataSet ds = dbSell.GetSell();
+            dgvDanhSachHoaDonBan.DataSource = null;
+            dgvDanhSachHoaDonBan.DataSource = ds.Tables[0];
+        }
+        private void btnBanHang_Click(object sender, EventArgs e)
+        {
+            DisplayPanel(pnBanHang);
+            DisplayButton(btnBanHang);
+            LoadDataSell();
+        }
+
+        private void btnTaoHoaDon_Click(object sender, EventArgs e)
+        {
+            pnHoaDonBanHang.Visible = true;
+            pnHoaDonBanHang.BringToFront();
+            dbProduct dbProduct = new dbProduct();
+            DataSet ds = dbProduct.GetProductCategoySupplierStatus();
+            cboSellProductID.DataSource = null;
+            cboSellProductID.DataSource = ds.Tables[0];
+            cboSellProductID.DisplayMember = "ProductID";
+            cboSellProductID.ValueMember = "ProductID";
+            dbCustomer dbCustomer = new dbCustomer();
+            DataSet data = dbCustomer.GetCustomer();
+            cboSellCustomerID.DataSource = null;
+            cboSellCustomerID.DataSource = data.Tables[0];
+            cboSellCustomerID.DisplayMember = "CustomerID";
+            cboSellCustomerID.ValueMember = "CustomerID";
+
+        }
+        #endregion
+
+        private void cboSellProductID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Kiểm tra xem ComboBox có dữ liệu hay không
+            if (cboSellProductID.SelectedIndex != -1 && cboSellProductID.DataSource != null)
+            {
+                // Lấy DataTable từ DataSet
+                DataTable dt = (DataTable)cboSellProductID.DataSource;
+
+                // Lấy chỉ số của mục được chọn
+                int selectedIndex = cboSellProductID.SelectedIndex;
+
+                // Kiểm tra chỉ số hợp lệ
+                if (selectedIndex >= 0 && selectedIndex < dt.Rows.Count)
+                {
+                    // Lấy DataRow tương ứng
+                    DataRow selectedRow = dt.Rows[selectedIndex];
+
+                    // Gán giá trị vào các TextBox
+                    txtSellProductName.Text = selectedRow["ProductName"].ToString();
+                    txtSellCategoryName.Text = selectedRow["CategoryName"].ToString();
+                    txtSellSupplierName.Text = selectedRow["SupplierName"].ToString();
+                    txtSellPrice.Text = selectedRow["ProductPrice"].ToString();
+                    ptbSellImageProduct.Image = Image.FromFile(selectedRow["ProductImage"].ToString());
+                }
+            }
+        }
+
+        private void lbCheckSellID_TextChanged(object sender, EventArgs e)
+        {
+            lbCheckSellID.Visible = false;
+        }
+        private void lbCheckSellQuantity_TextChanged(object sender, EventArgs e)
+        {
+            lbCheckSellQuantity.Visible = false;
+        }
+
+        private void btnAddShoppingcart_Click(object sender, EventArgs e)
+        {
+            if (dgvShoppingCart.Columns.Count == 0)
+            {
+                dgvShoppingCart.Columns.Add("ProductID", "Mã sản phẩm");
+                dgvShoppingCart.Columns.Add("ProductName", "Tên sản phẩm");
+                dgvShoppingCart.Columns.Add("CategoryName", "Loại sản phẩm");
+                dgvShoppingCart.Columns.Add("SupplierName", "Nhà cung cấp");
+                dgvShoppingCart.Columns.Add("Quantity", "Số lượng");
+                dgvShoppingCart.Columns.Add("PriceOut", "Giá");
+                dgvShoppingCart.Columns.Add("TotalPrice", "Tổng tiền");
+            }
+            if (CheckAddShoppingCart())
+            {
+                // Lấy dòng được chọn từ ComboBox (là DataRowView)
+                DataRowView selectedRow = (DataRowView)cboSellProductID.SelectedItem;
+                // Truy cập giá trị ProductID từ DataRowView
+                string productID = selectedRow["ProductID"].ToString();
+                // Tạo đối tượng Product từ các TextBox
+                Product product = new Product(
+                    productID,
+                    txtSellProductName.Text,
+                    txtSellCategoryName.Text,
+                    txtSellSupplierName.Text,
+                    Convert.ToDecimal(txtSellPrice.Text),
+                    int.Parse(txtSellQuantity.Text)
+                );
+
+                // Kiểm tra nếu sản phẩm đã tồn tại trong DataGridView
+                bool productExists = false;
+                foreach (DataGridViewRow row in dgvShoppingCart.Rows)
+                {
+                    if (row.Cells["ProductID"].Value != null && row.Cells["ProductID"].Value.ToString() == product.ProductID)
+                    {
+                        // Nếu sản phẩm đã tồn tại, cập nhật số lượng
+                        int currentQuantity = Convert.ToInt32(row.Cells["Quantity"].Value);
+                        int newQuantity = currentQuantity + product.ProductQuantity;
+                        row.Cells["Quantity"].Value = newQuantity; // Cập nhật số lượng
+                        row.Cells["TotalPrice"].Value = newQuantity * Convert.ToDecimal(row.Cells["PriceOut"].Value); // Cập nhật giá trị tổng
+                        productExists = true;
+                        break;
+                    }
+                }
+
+                // Nếu sản phẩm chưa tồn tại trong DataGridView, thêm sản phẩm mới
+                if (!productExists)
+                {
+                    dgvShoppingCart.Rows.Add(product.ProductID, product.ProductName, product.CategoryName, product.SupplierName, product.ProductQuantity, product.ProductPrice, product.GetTotalPrice());
+                }
+            }
+            
+        }
+
+        private void cboSellCustomerID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Kiểm tra xem ComboBox có dữ liệu hay không
+            if (cboSellCustomerID.SelectedIndex != -1 && cboSellCustomerID.DataSource != null)
+            {
+                // Lấy DataTable từ DataSet
+                DataTable dt = (DataTable)cboSellCustomerID.DataSource;
+
+                // Lấy chỉ số của mục được chọn
+                int selectedIndex = cboSellCustomerID.SelectedIndex;
+
+                // Kiểm tra chỉ số hợp lệ
+                if (selectedIndex >= 0 && selectedIndex < dt.Rows.Count)
+                {
+                    // Lấy DataRow tương ứng
+                    DataRow selectedRow = dt.Rows[selectedIndex];
+
+                    // Gán giá trị vào các TextBox
+                    txtSellCutomerName.Text = selectedRow["CustomerName"].ToString();
+                    txtSellAddressCustomer.Text = selectedRow["CustomerAddress"].ToString();
+                    txtSellPhoneCustomer.Text = selectedRow["CustomerPhone"].ToString();
+                    txtSellEmailCustomer.Text = selectedRow["CustomerEmail"].ToString();
+                }
+            }
+        }
+
+        private void dgvShoppingCart_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvShoppingCart.Rows.Count > 0)
+            {
+                cboSellProductID.SelectedValue = dgvShoppingCart.Rows[e.RowIndex].Cells[0].Value;
+                txtSellQuantity.Text = dgvShoppingCart.Rows[e.RowIndex].Cells[4].Value.ToString();
+                txtSellPrice.Text = dgvShoppingCart.Rows[e.RowIndex].Cells[5].Value.ToString();
+            }
+        }
+
+        private void btnUpdateShoppingcart_Click(object sender, EventArgs e)
+        {
+            // Lấy dữ liệu từ các TextBox hoặc ComboBox
+            // Lấy dòng được chọn từ ComboBox (là DataRowView)
+            DataRowView selectedRow = (DataRowView)cboSellProductID.SelectedItem;
+
+            // Truy cập giá trị ProductID từ DataRowView
+            string productID = selectedRow["ProductID"].ToString();
+            int quantity = Convert.ToInt32(txtSellQuantity.Text); // Lấy số lượng từ TextBox
+            decimal unitPrice = Convert.ToDecimal(txtSellPrice.Text); // Lấy giá từ TextBox
+
+            // Tìm hàng trong DataGridView có ID sản phẩm trùng với productID
+            foreach (DataGridViewRow row in dgvShoppingCart.Rows)
+            {
+                if (row.Cells["ProductID"].Value.ToString() == productID)
+                {
+                    // Cập nhật giá trị trong các ô tương ứng của dòng đó
+                    row.Cells["Quantity"].Value = quantity;
+                    row.Cells["PriceOut"].Value = unitPrice;
+                    row.Cells["TotalPrice"].Value = unitPrice * quantity;
+                    Console.WriteLine("GetToTalPrice:" + row.Cells["TotalPrice"].Value);
+                    break; // Dừng vòng lặp sau khi tìm thấy dòng cần cập nhật
+                }
+            }
+
+            // Cập nhật lại DataGridView (nếu cần thiết)
+            dgvShoppingCart.Refresh();
+        }
+
+        private void btnDeleteShoppingcart_Click(object sender, EventArgs e)
+        {
+            // Lấy dữ liệu từ ComboBox (DataRowView)
+            DataRowView selectedRow = (DataRowView)cboSellProductID.SelectedItem;
+
+            // Truy cập giá trị ProductID từ DataRowView
+            string productID = selectedRow["ProductID"].ToString();
+
+            // Duyệt qua các dòng trong DataGridView để tìm dòng có ProductID cần xóa
+            foreach (DataGridViewRow row in dgvShoppingCart.Rows)
+            {
+                if (row.Cells["ProductID"].Value.ToString() == productID)
+                {
+                    // Xóa dòng tương ứng
+                    dgvShoppingCart.Rows.RemoveAt(row.Index);
+                    break; // Dừng vòng lặp sau khi xóa dòng cần tìm
+                }
+            }
+
+            // Cập nhật lại DataGridView (nếu cần thiết)
+            dgvShoppingCart.Refresh();
+        }
+
+        private void btnSaveShoppingCart_Click(object sender, EventArgs e)
+        {
+            dbSell dbSell = new dbSell();
+            dbSellDetail dbSellDetail = new dbSellDetail();
+            dbProduct dbProduct = new dbProduct();
+            DataRowView selectedRow = (DataRowView)cboSellCustomerID.SelectedItem;
+
+            // Truy cập giá trị ProductID từ DataRowView
+            string customerID = selectedRow["CustomerID"].ToString();
+            Product product = new Product();
+            DataSet ds = dbProduct.GetProduct();
+            decimal totalPrice = 0;
+            foreach (DataGridViewRow row in dgvShoppingCart.Rows)
+            {
+                if (!row.IsNewRow) // Bỏ qua hàng trống (nếu có)
+                {
+                    var cellValue = row.Cells["TotalPrice"].Value;
+                    // Chuyển đổi sang decimal
+                    totalPrice += decimal.Parse(cellValue.ToString());
+                }
+            }
+            // thêm hóa đơn bán sản phẩm 
+            dbSell.InsertSell(txtSellID.Text, employee.Employeeid, customerID, totalPrice, datesell.Value);
+            foreach (DataGridViewRow row in dgvShoppingCart.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    DataRow foundRow = null;
+                    foreach (DataRow dataRow in ds.Tables[0].Rows)
+                    {
+                        if (dataRow["ProductID"].ToString().Equals(row.Cells["ProductID"].Value.ToString()))
+                        {
+                            foundRow = dataRow;
+                            break;
+                        }
+                    }
+                    if (foundRow != null)
+                    {
+                        product.ProductID = foundRow["ProductID"].ToString();
+                        product.ProductQuantity = int.Parse(foundRow["ProductQuantity"].ToString()) - int.Parse(row.Cells["Quantity"].Value.ToString());
+                        product.ProductPrice = decimal.Parse(foundRow["ProductPrice"].ToString());
+                        dbProduct.UpdateProductQuantity(row.Cells["ProductID"].Value.ToString(), product.ProductQuantity);
+                        dbSellDetail.InsertSellDetail(txtSellID.Text, product.ProductID, int.Parse(row.Cells["Quantity"].Value.ToString()), product.ProductPrice);
+                    }
+                }
+            }
+            MessageBox.Show("Bán sản phẩm thành công!", "Thông báo");
+
+        }
     }
 }

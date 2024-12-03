@@ -17,6 +17,7 @@ namespace QLBanHang.Model
         private int productQuantity;  
 
         // Constructor
+        public Product() { }
         public Product(string productID, string productName, string categoryName, string supplierName, decimal productPrice, int productQuantity)
         {
             this.productID = productID;

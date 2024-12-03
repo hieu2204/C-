@@ -11,6 +11,7 @@ namespace QLBanHang.Controller
     internal class dbPurchaseInvoice
     {
         private Connect connect = new Connect();
+        #region chèn dữ liệu hóa đơn 
         public void InsertPurchaseInvoice(string id, int employeeid, DateTime date, decimal price)
         {
             SqlConnection dbConnect = connect.GetConnect();
@@ -34,6 +35,9 @@ namespace QLBanHang.Controller
                 dbConnect.Close();
             }
         }
+        #endregion
+
+        #region lấy dữ liệu hóa đơn
         public DataSet GetPurchaseInvoice()
         {
             DataSet ds = new DataSet();
@@ -50,5 +54,7 @@ namespace QLBanHang.Controller
             finally { dbconnect.Close(); }
             return ds;
         }
+        #endregion
+        
     }
 }

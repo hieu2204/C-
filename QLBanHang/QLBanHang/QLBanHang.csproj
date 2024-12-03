@@ -59,6 +59,8 @@
     <Compile Include="Controller\dbInvoiceDetails.cs" />
     <Compile Include="Controller\dbProduct.cs" />
     <Compile Include="Controller\dbPurchaseInvoice.cs" />
+    <Compile Include="Controller\dbSell.cs" />
+    <Compile Include="Controller\dbSellDetail.cs" />
     <Compile Include="Controller\dbSupplier.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\Product.cs" />

@@ -268,8 +268,54 @@ namespace QLBanHang.Controller
             return ds;
         }
         #endregion
-        #region Update số lượng kho
+        #region Update số lượng kho khi nhập
         public void UpdateProductQuantity(string id, int quantity)
+        {
+            SqlConnection dbConnect = connect.GetConnect();
+            string sql = "UPDATE Products SET ProductQuantity = @quantity WHERE ProductID = @id";
+            try
+            {
+                dbConnect.Open();
+                SqlCommand cmd = new SqlCommand(sql, dbConnect);
+                cmd.Parameters.AddWithValue("@quantity", quantity);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi cập nhật số lượng sản phẩm:" + ex.Message);
+            }
+            finally { dbConnect.Close(); }
+        }
+        #endregion
+        #region Lấy dữ liệu sản phẩm đang bán
+        public DataSet GetProductCategoySupplierStatus()
+        {
+            DataSet ds = new DataSet();
+            SqlConnection dbConnect = connect.GetConnect();
+            string sql = "SELECT ProductID, ProductName, ProductQuantity, Categories.CategoryName, Suppliers.SupplierName , ProductImage, Products.ProductPrice FROM Products, Categories, Suppliers " +
+                "WHERE Products.CategoryID = Categories.CategoryID AND Products.SupplierID = Suppliers.SupplierID AND ProductStatus = @status";
+            try
+            {
+                dbConnect.Open();
+                SqlCommand cmd = new SqlCommand(sql, dbConnect);
+                cmd.Parameters.AddWithValue("@status", "Đang bán");
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(ds);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi lấy dữ liệu sản phẩm với tên danh mục và tên nhà cung cấp: " + ex.Message);
+            }
+            finally
+            {
+                dbConnect.Close();
+            }
+            return ds;
+        }
+        #endregion
+        #region Update số lượng kho khi bán
+        public void UpdateProductQuantitySell(string id, int quantity)
         {
             SqlConnection dbConnect = connect.GetConnect();
             string sql = "UPDATE Products SET ProductQuantity = @quantity WHERE ProductID = @id";

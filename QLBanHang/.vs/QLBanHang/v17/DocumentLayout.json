@@ -1,42 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\.NET\\QLBanHang\\",
+  "WorkspaceRootPath": "D:\\C#\\baocao\\C-\\QLBanHang\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|d:\\.net\\qlbanhang\\qlbanhang\\view\\function.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|solutionrelative:qlbanhang\\view\\function.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|D:\\C#\\baocao\\C-\\QLBanHang\\QLBanHang\\View\\Function.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|solutionrelative:QLBanHang\\View\\Function.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|d:\\.net\\qlbanhang\\qlbanhang\\view\\function.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|solutionrelative:qlbanhang\\view\\function.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|d:\\c#\\baocao\\c-\\qlbanhang\\qlbanhang\\controller\\dbsell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|solutionrelative:qlbanhang\\controller\\dbsell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|D:\\.NET\\QLBanHang\\qlbanhang\\view\\function.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|solutionrelative:qlbanhang\\view\\function.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|d:\\c#\\baocao\\c-\\qlbanhang\\qlbanhang\\controller\\dbselldetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|solutionrelative:qlbanhang\\controller\\dbselldetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|D:\\.NET\\QLBanHang\\qlbanhang\\controller\\dbpurchaseinvoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|solutionrelative:qlbanhang\\controller\\dbpurchaseinvoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|D:\\C#\\baocao\\C-\\QLBanHang\\qlbanhang\\controller\\dbcustomer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|solutionrelative:qlbanhang\\controller\\dbcustomer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|D:\\.NET\\QLBanHang\\qlbanhang\\controller\\dbinvoicedetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|D:\\C#\\baocao\\C-\\QLBanHang\\QLBanHang\\View\\Function.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|solutionrelative:QLBanHang\\View\\Function.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|D:\\C#\\baocao\\C-\\QLBanHang\\QLBanHang\\Controller\\dbProduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|solutionrelative:QLBanHang\\Controller\\dbProduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|D:\\C#\\baocao\\C-\\QLBanHang\\qlbanhang\\controller\\dbinvoicedetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|solutionrelative:qlbanhang\\controller\\dbinvoicedetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|D:\\.NET\\QLBanHang\\qlbanhang\\controller\\dbproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|solutionrelative:qlbanhang\\controller\\dbproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|D:\\.NET\\QLBanHang\\qlbanhang\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|solutionrelative:qlbanhang\\model\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|D:\\.NET\\QLBanHang\\qlbanhang\\view\\displayemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|solutionrelative:qlbanhang\\view\\displayemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|D:\\.NET\\QLBanHang\\qlbanhang\\view\\displayproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7D0E259-E9A7-4129-A013-DE39B7F90716}|QLBanHang\\QLBanHang.csproj|solutionrelative:qlbanhang\\view\\displayproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,113 +38,94 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Function.Designer.cs",
-              "DocumentMoniker": "D:\\.NET\\QLBanHang\\QLBanHang\\View\\Function.Designer.cs",
-              "RelativeDocumentMoniker": "QLBanHang\\View\\Function.Designer.cs",
-              "ToolTip": "D:\\.NET\\QLBanHang\\QLBanHang\\View\\Function.Designer.cs",
-              "RelativeToolTip": "QLBanHang\\View\\Function.Designer.cs",
-              "ViewState": "AgIAAOsQAAAAAAAAAAAhwOMQAAAPAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Function.cs",
+              "DocumentMoniker": "D:\\C#\\baocao\\C-\\QLBanHang\\QLBanHang\\View\\Function.cs",
+              "RelativeDocumentMoniker": "QLBanHang\\View\\Function.cs",
+              "ToolTip": "D:\\C#\\baocao\\C-\\QLBanHang\\QLBanHang\\View\\Function.cs",
+              "RelativeToolTip": "QLBanHang\\View\\Function.cs",
+              "ViewState": "AgIAAHoHAAAAAAAAAADgv6oHAACKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-03T04:10:20.327Z",
+              "WhenOpened": "2024-11-27T13:23:32.553Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "dbInvoiceDetails.cs",
-              "DocumentMoniker": "D:\\.NET\\QLBanHang\\QLBanHang\\Controller\\dbInvoiceDetails.cs",
-              "RelativeDocumentMoniker": "QLBanHang\\Controller\\dbInvoiceDetails.cs",
-              "ToolTip": "D:\\.NET\\QLBanHang\\QLBanHang\\Controller\\dbInvoiceDetails.cs",
-              "RelativeToolTip": "QLBanHang\\Controller\\dbInvoiceDetails.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAgwB8AAAAiAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "dbSellDetail.cs",
+              "DocumentMoniker": "D:\\C#\\baocao\\C-\\QLBanHang\\QLBanHang\\Controller\\dbSellDetail.cs",
+              "RelativeDocumentMoniker": "QLBanHang\\Controller\\dbSellDetail.cs",
+              "ToolTip": "D:\\C#\\baocao\\C-\\QLBanHang\\QLBanHang\\Controller\\dbSellDetail.cs",
+              "RelativeToolTip": "QLBanHang\\Controller\\dbSellDetail.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-03T02:02:35.145Z"
+              "WhenOpened": "2024-12-03T12:17:23.116Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "dbSell.cs",
+              "DocumentMoniker": "D:\\C#\\baocao\\C-\\QLBanHang\\QLBanHang\\Controller\\dbSell.cs",
+              "RelativeDocumentMoniker": "QLBanHang\\Controller\\dbSell.cs",
+              "ToolTip": "D:\\C#\\baocao\\C-\\QLBanHang\\QLBanHang\\Controller\\dbSell.cs",
+              "RelativeToolTip": "QLBanHang\\Controller\\dbSell.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAABEAAADSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-03T11:38:10.006Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "dbPurchaseInvoice.cs",
-              "DocumentMoniker": "D:\\.NET\\QLBanHang\\QLBanHang\\Controller\\dbPurchaseInvoice.cs",
-              "RelativeDocumentMoniker": "QLBanHang\\Controller\\dbPurchaseInvoice.cs",
-              "ToolTip": "D:\\.NET\\QLBanHang\\QLBanHang\\Controller\\dbPurchaseInvoice.cs",
-              "RelativeToolTip": "QLBanHang\\Controller\\dbPurchaseInvoice.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAkwCgAAACFAAAAAAAAAA==",
+              "Title": "dbCustomer.cs",
+              "DocumentMoniker": "D:\\C#\\baocao\\C-\\QLBanHang\\QLBanHang\\Controller\\dbCustomer.cs",
+              "RelativeDocumentMoniker": "QLBanHang\\Controller\\dbCustomer.cs",
+              "ToolTip": "D:\\C#\\baocao\\C-\\QLBanHang\\QLBanHang\\Controller\\dbCustomer.cs",
+              "RelativeToolTip": "QLBanHang\\Controller\\dbCustomer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-02T15:53:36.075Z"
+              "WhenOpened": "2024-12-03T07:39:28.295Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Product.cs",
-              "DocumentMoniker": "D:\\.NET\\QLBanHang\\QLBanHang\\Model\\Product.cs",
-              "RelativeDocumentMoniker": "QLBanHang\\Model\\Product.cs",
-              "ToolTip": "D:\\.NET\\QLBanHang\\QLBanHang\\Model\\Product.cs",
-              "RelativeToolTip": "QLBanHang\\Model\\Product.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAswCQAAAAiAAAAAAAAAA==",
+              "Title": "dbInvoiceDetails.cs",
+              "DocumentMoniker": "D:\\C#\\baocao\\C-\\QLBanHang\\QLBanHang\\Controller\\dbInvoiceDetails.cs",
+              "RelativeDocumentMoniker": "QLBanHang\\Controller\\dbInvoiceDetails.cs",
+              "ToolTip": "D:\\C#\\baocao\\C-\\QLBanHang\\QLBanHang\\Controller\\dbInvoiceDetails.cs",
+              "RelativeToolTip": "QLBanHang\\Controller\\dbInvoiceDetails.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAmwDgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-02T14:55:23.756Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "DisplayProduct.cs",
-              "DocumentMoniker": "D:\\.NET\\QLBanHang\\QLBanHang\\View\\DisplayProduct.cs",
-              "RelativeDocumentMoniker": "QLBanHang\\View\\DisplayProduct.cs",
-              "ToolTip": "D:\\.NET\\QLBanHang\\QLBanHang\\View\\DisplayProduct.cs",
-              "RelativeToolTip": "QLBanHang\\View\\DisplayProduct.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAxwF4AAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-02T02:43:25.997Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "DisplayEmployee.cs",
-              "DocumentMoniker": "D:\\.NET\\QLBanHang\\QLBanHang\\View\\DisplayEmployee.cs",
-              "RelativeDocumentMoniker": "QLBanHang\\View\\DisplayEmployee.cs",
-              "ToolTip": "D:\\.NET\\QLBanHang\\QLBanHang\\View\\DisplayEmployee.cs",
-              "RelativeToolTip": "QLBanHang\\View\\DisplayEmployee.cs",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-02T02:40:49.024Z"
+              "WhenOpened": "2024-12-03T06:16:57.907Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "dbProduct.cs",
-              "DocumentMoniker": "D:\\.NET\\QLBanHang\\QLBanHang\\Controller\\dbProduct.cs",
+              "DocumentMoniker": "D:\\C#\\baocao\\C-\\QLBanHang\\QLBanHang\\Controller\\dbProduct.cs",
               "RelativeDocumentMoniker": "QLBanHang\\Controller\\dbProduct.cs",
-              "ToolTip": "D:\\.NET\\QLBanHang\\QLBanHang\\Controller\\dbProduct.cs",
+              "ToolTip": "D:\\C#\\baocao\\C-\\QLBanHang\\QLBanHang\\Controller\\dbProduct.cs",
               "RelativeToolTip": "QLBanHang\\Controller\\dbProduct.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAowBkBAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAEQBAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-02T02:21:43.582Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Function.cs",
-              "DocumentMoniker": "D:\\.NET\\QLBanHang\\QLBanHang\\View\\Function.cs",
-              "RelativeDocumentMoniker": "QLBanHang\\View\\Function.cs",
-              "ToolTip": "D:\\.NET\\QLBanHang\\QLBanHang\\View\\Function.cs",
-              "RelativeToolTip": "QLBanHang\\View\\Function.cs",
-              "ViewState": "AgIAAHAGAAAAAAAAAAAWwH0GAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T13:23:32.553Z",
+              "WhenOpened": "2024-12-02T02:21:43.582Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Function.cs [Design]",
-              "DocumentMoniker": "D:\\.NET\\QLBanHang\\QLBanHang\\View\\Function.cs",
+              "DocumentMoniker": "D:\\C#\\baocao\\C-\\QLBanHang\\QLBanHang\\View\\Function.cs",
               "RelativeDocumentMoniker": "QLBanHang\\View\\Function.cs",
-              "ToolTip": "D:\\.NET\\QLBanHang\\QLBanHang\\View\\Function.cs [Design]",
+              "ToolTip": "D:\\C#\\baocao\\C-\\QLBanHang\\QLBanHang\\View\\Function.cs [Design]",
               "RelativeToolTip": "QLBanHang\\View\\Function.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-27T13:07:21.947Z",
