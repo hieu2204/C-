@@ -1,0 +1,15 @@
+D:\.NET\QLBanHang\QLBanHang\bin\Debug\QLBanHang.exe.config
+D:\.NET\QLBanHang\QLBanHang\bin\Debug\QLBanHang.exe
+D:\.NET\QLBanHang\QLBanHang\bin\Debug\QLBanHang.pdb
+D:\.NET\QLBanHang\QLBanHang\bin\Debug\Guna.UI2.dll
+D:\.NET\QLBanHang\QLBanHang\obj\Debug\QLBanHang.csproj.AssemblyReference.cache
+D:\.NET\QLBanHang\QLBanHang\obj\Debug\QLBanHang.Login.resources
+D:\.NET\QLBanHang\QLBanHang\obj\Debug\QLBanHang.Properties.Resources.resources
+D:\.NET\QLBanHang\QLBanHang\obj\Debug\QLBanHang.csproj.GenerateResource.cache
+D:\.NET\QLBanHang\QLBanHang\obj\Debug\QLBanHang.csproj.CoreCompileInputs.cache
+D:\.NET\QLBanHang\QLBanHang\obj\Debug\QLBanHang.csproj.Up2Date
+D:\.NET\QLBanHang\QLBanHang\obj\Debug\QLBanHang.exe
+D:\.NET\QLBanHang\QLBanHang\obj\Debug\QLBanHang.pdb
+D:\.NET\QLBanHang\QLBanHang\obj\Debug\QLBanHang.View.Function.resources
+D:\.NET\QLBanHang\QLBanHang\obj\Debug\QLBanHang.View.DisplayEmployee.resources
+D:\.NET\QLBanHang\QLBanHang\obj\Debug\QLBanHang.View.DisplayProduct.resources
