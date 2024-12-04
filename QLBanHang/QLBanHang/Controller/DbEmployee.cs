@@ -305,5 +305,28 @@ namespace QLBanHang.Controller
             return null;
         }
         #endregion
+        #region Lấy số lượng nhân viên
+        public int GetEmployeeCount()
+        {
+            int count = 0;
+            SqlConnection dbConnect = connect.GetConnect();
+            string sql = "SELECT COUNT(*) FROM Employees";  
+            try
+            {
+                dbConnect.Open();
+                SqlCommand cmd = new SqlCommand(sql, dbConnect);
+                count = (int)cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi lấy số lượng nhân viên: " + ex.Message);
+            }
+            finally
+            {
+                dbConnect.Close();
+            }
+            return count;
+        }
+        #endregion
     }
 }

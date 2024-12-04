@@ -84,10 +84,9 @@
             this.pnLogin.Controls.Add(this.guna2HtmlLabel2);
             this.pnLogin.Controls.Add(this.txtUser);
             this.pnLogin.Controls.Add(this.guna2HtmlLabel1);
-            this.pnLogin.Location = new System.Drawing.Point(1160, 0);
-            this.pnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnLogin.Location = new System.Drawing.Point(870, 0);
             this.pnLogin.Name = "pnLogin";
-            this.pnLogin.Size = new System.Drawing.Size(797, 1046);
+            this.pnLogin.Size = new System.Drawing.Size(586, 850);
             this.pnLogin.TabIndex = 1;
             // 
             // txtQuenMatKhau
@@ -103,13 +102,13 @@
             this.txtQuenMatKhau.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtQuenMatKhau.ForeColor = System.Drawing.Color.Black;
             this.txtQuenMatKhau.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtQuenMatKhau.Location = new System.Drawing.Point(495, 565);
-            this.txtQuenMatKhau.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtQuenMatKhau.Location = new System.Drawing.Point(371, 459);
+            this.txtQuenMatKhau.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtQuenMatKhau.Name = "txtQuenMatKhau";
             this.txtQuenMatKhau.PasswordChar = '\0';
             this.txtQuenMatKhau.PlaceholderText = "";
             this.txtQuenMatKhau.SelectedText = "";
-            this.txtQuenMatKhau.Size = new System.Drawing.Size(267, 44);
+            this.txtQuenMatKhau.Size = new System.Drawing.Size(200, 36);
             this.txtQuenMatKhau.TabIndex = 14;
             this.txtQuenMatKhau.Click += new System.EventHandler(this.txtQuenMatKhau_Click);
             // 
@@ -117,10 +116,9 @@
             // 
             this.ptbClose.Image = global::QLBanHang.Properties.Resources.close;
             this.ptbClose.ImageRotate = 0F;
-            this.ptbClose.Location = new System.Drawing.Point(737, 15);
-            this.ptbClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ptbClose.Location = new System.Drawing.Point(541, 12);
             this.ptbClose.Name = "ptbClose";
-            this.ptbClose.Size = new System.Drawing.Size(43, 39);
+            this.ptbClose.Size = new System.Drawing.Size(32, 32);
             this.ptbClose.TabIndex = 13;
             this.ptbClose.TabStop = false;
             this.ptbClose.Click += new System.EventHandler(this.ptbClose_Click);
@@ -129,10 +127,9 @@
             // 
             this.ptbSeePass.Image = global::QLBanHang.Properties.Resources.eye;
             this.ptbSeePass.ImageRotate = 0F;
-            this.ptbSeePass.Location = new System.Drawing.Point(580, 510);
-            this.ptbSeePass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ptbSeePass.Location = new System.Drawing.Point(435, 414);
             this.ptbSeePass.Name = "ptbSeePass";
-            this.ptbSeePass.Size = new System.Drawing.Size(43, 39);
+            this.ptbSeePass.Size = new System.Drawing.Size(32, 32);
             this.ptbSeePass.TabIndex = 12;
             this.ptbSeePass.TabStop = false;
             this.ptbSeePass.Click += new System.EventHandler(this.ptbSeePass_Click);
@@ -146,10 +143,9 @@
             this.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(204, 682);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Location = new System.Drawing.Point(156, 560);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(419, 55);
+            this.btnLogin.Size = new System.Drawing.Size(314, 45);
             this.btnLogin.TabIndex = 11;
             this.btnLogin.Text = "LOGIN";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -158,8 +154,7 @@
             // 
             this.lbCheckPassword.BackColor = System.Drawing.Color.Transparent;
             this.lbCheckPassword.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCheckPassword.Location = new System.Drawing.Point(204, 567);
-            this.lbCheckPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbCheckPassword.Location = new System.Drawing.Point(153, 461);
             this.lbCheckPassword.Name = "lbCheckPassword";
             this.lbCheckPassword.Size = new System.Drawing.Size(3, 2);
             this.lbCheckPassword.TabIndex = 9;
@@ -169,8 +164,7 @@
             // 
             this.lbCheckUser.BackColor = System.Drawing.Color.Transparent;
             this.lbCheckUser.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCheckUser.Location = new System.Drawing.Point(204, 383);
-            this.lbCheckUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbCheckUser.Location = new System.Drawing.Point(153, 311);
             this.lbCheckUser.Name = "lbCheckUser";
             this.lbCheckUser.Size = new System.Drawing.Size(3, 2);
             this.lbCheckUser.TabIndex = 8;
@@ -180,10 +174,9 @@
             // 
             this.guna2HtmlLabel3.AutoSize = false;
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(208, 556);
-            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(156, 452);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(419, 1);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(314, 1);
             this.guna2HtmlLabel3.TabIndex = 7;
             this.guna2HtmlLabel3.Text = null;
             // 
@@ -201,13 +194,13 @@
             this.txtPassword.ForeColor = System.Drawing.Color.Black;
             this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPassword.IconLeft = global::QLBanHang.Properties.Resources.locked;
-            this.txtPassword.Location = new System.Drawing.Point(204, 484);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtPassword.Location = new System.Drawing.Point(153, 393);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.PlaceholderText = "Password";
             this.txtPassword.SelectedText = "";
-            this.txtPassword.Size = new System.Drawing.Size(365, 74);
+            this.txtPassword.Size = new System.Drawing.Size(274, 60);
             this.txtPassword.TabIndex = 6;
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
@@ -215,10 +208,9 @@
             // 
             this.guna2HtmlLabel2.AutoSize = false;
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(204, 373);
-            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(153, 303);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(419, 1);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(314, 1);
             this.guna2HtmlLabel2.TabIndex = 5;
             this.guna2HtmlLabel2.Text = null;
             // 
@@ -236,13 +228,13 @@
             this.txtUser.ForeColor = System.Drawing.Color.Black;
             this.txtUser.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUser.IconLeft = global::QLBanHang.Properties.Resources.user;
-            this.txtUser.Location = new System.Drawing.Point(204, 300);
-            this.txtUser.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtUser.Location = new System.Drawing.Point(153, 244);
+            this.txtUser.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtUser.Name = "txtUser";
             this.txtUser.PasswordChar = '\0';
             this.txtUser.PlaceholderText = "Username";
             this.txtUser.SelectedText = "";
-            this.txtUser.Size = new System.Drawing.Size(419, 74);
+            this.txtUser.Size = new System.Drawing.Size(314, 60);
             this.txtUser.TabIndex = 4;
             this.txtUser.TextChanged += new System.EventHandler(this.txtUser_TextChanged);
             // 
@@ -250,10 +242,9 @@
             // 
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(189, 127);
-            this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(143, 106);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(435, 83);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(349, 67);
             this.guna2HtmlLabel1.TabIndex = 0;
             this.guna2HtmlLabel1.Text = "Welcome Back!";
             // 
@@ -278,20 +269,18 @@
             this.pnForgotPass.Controls.Add(this.txtEmail);
             this.pnForgotPass.Controls.Add(this.guna2HtmlLabel4);
             this.pnForgotPass.FillColor = System.Drawing.Color.White;
-            this.pnForgotPass.Location = new System.Drawing.Point(281, 127);
-            this.pnForgotPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnForgotPass.Location = new System.Drawing.Point(211, 103);
             this.pnForgotPass.Name = "pnForgotPass";
-            this.pnForgotPass.Size = new System.Drawing.Size(1505, 794);
+            this.pnForgotPass.Size = new System.Drawing.Size(1129, 645);
             this.pnForgotPass.TabIndex = 0;
             // 
             // ptbHide
             // 
             this.ptbHide.Image = global::QLBanHang.Properties.Resources.close;
             this.ptbHide.ImageRotate = 0F;
-            this.ptbHide.Location = new System.Drawing.Point(1448, 20);
-            this.ptbHide.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ptbHide.Location = new System.Drawing.Point(1086, 16);
             this.ptbHide.Name = "ptbHide";
-            this.ptbHide.Size = new System.Drawing.Size(43, 39);
+            this.ptbHide.Size = new System.Drawing.Size(32, 32);
             this.ptbHide.TabIndex = 21;
             this.ptbHide.TabStop = false;
             this.ptbHide.Click += new System.EventHandler(this.ptbHide_Click);
@@ -300,10 +289,9 @@
             // 
             this.ptbSeeNewPass.Image = global::QLBanHang.Properties.Resources.eye;
             this.ptbSeeNewPass.ImageRotate = 0F;
-            this.ptbSeeNewPass.Location = new System.Drawing.Point(909, 517);
-            this.ptbSeeNewPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ptbSeeNewPass.Location = new System.Drawing.Point(682, 420);
             this.ptbSeeNewPass.Name = "ptbSeeNewPass";
-            this.ptbSeeNewPass.Size = new System.Drawing.Size(43, 39);
+            this.ptbSeeNewPass.Size = new System.Drawing.Size(32, 32);
             this.ptbSeeNewPass.TabIndex = 20;
             this.ptbSeeNewPass.TabStop = false;
             this.ptbSeeNewPass.Click += new System.EventHandler(this.ptbSeeNewPass_Click);
@@ -312,8 +300,7 @@
             // 
             this.lbCheckOTP.BackColor = System.Drawing.Color.Transparent;
             this.lbCheckOTP.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCheckOTP.Location = new System.Drawing.Point(409, 418);
-            this.lbCheckOTP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbCheckOTP.Location = new System.Drawing.Point(307, 340);
             this.lbCheckOTP.Name = "lbCheckOTP";
             this.lbCheckOTP.Size = new System.Drawing.Size(3, 2);
             this.lbCheckOTP.TabIndex = 19;
@@ -323,8 +310,7 @@
             // 
             this.lbCheckEmail.BackColor = System.Drawing.Color.Transparent;
             this.lbCheckEmail.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCheckEmail.Location = new System.Drawing.Point(409, 257);
-            this.lbCheckEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbCheckEmail.Location = new System.Drawing.Point(307, 209);
             this.lbCheckEmail.Name = "lbCheckEmail";
             this.lbCheckEmail.Size = new System.Drawing.Size(3, 2);
             this.lbCheckEmail.TabIndex = 18;
@@ -334,10 +320,9 @@
             // 
             this.lbSeperator.AutoSize = false;
             this.lbSeperator.BackColor = System.Drawing.Color.Black;
-            this.lbSeperator.Location = new System.Drawing.Point(409, 562);
-            this.lbSeperator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbSeperator.Location = new System.Drawing.Point(307, 457);
             this.lbSeperator.Name = "lbSeperator";
-            this.lbSeperator.Size = new System.Drawing.Size(543, 1);
+            this.lbSeperator.Size = new System.Drawing.Size(407, 1);
             this.lbSeperator.TabIndex = 17;
             this.lbSeperator.Text = null;
             // 
@@ -355,13 +340,13 @@
             this.txtNewPassword.ForeColor = System.Drawing.Color.Black;
             this.txtNewPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNewPassword.IconLeft = global::QLBanHang.Properties.Resources.locked;
-            this.txtNewPassword.Location = new System.Drawing.Point(409, 491);
-            this.txtNewPassword.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtNewPassword.Location = new System.Drawing.Point(307, 399);
+            this.txtNewPassword.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.PasswordChar = '*';
             this.txtNewPassword.PlaceholderText = "New Password";
             this.txtNewPassword.SelectedText = "";
-            this.txtNewPassword.Size = new System.Drawing.Size(489, 74);
+            this.txtNewPassword.Size = new System.Drawing.Size(367, 60);
             this.txtNewPassword.TabIndex = 16;
             // 
             // txtOTP
@@ -378,13 +363,13 @@
             this.txtOTP.ForeColor = System.Drawing.Color.Black;
             this.txtOTP.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtOTP.IconLeft = global::QLBanHang.Properties.Resources.otp;
-            this.txtOTP.Location = new System.Drawing.Point(409, 336);
-            this.txtOTP.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtOTP.Location = new System.Drawing.Point(307, 273);
+            this.txtOTP.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtOTP.Name = "txtOTP";
             this.txtOTP.PasswordChar = '\0';
             this.txtOTP.PlaceholderText = "OTP";
             this.txtOTP.SelectedText = "";
-            this.txtOTP.Size = new System.Drawing.Size(543, 74);
+            this.txtOTP.Size = new System.Drawing.Size(407, 60);
             this.txtOTP.TabIndex = 15;
             this.txtOTP.TextChanged += new System.EventHandler(this.txtOTP_TextChanged);
             // 
@@ -397,10 +382,9 @@
             this.btnXacThuc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnXacThuc.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.btnXacThuc.ForeColor = System.Drawing.Color.White;
-            this.btnXacThuc.Location = new System.Drawing.Point(761, 420);
-            this.btnXacThuc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnXacThuc.Location = new System.Drawing.Point(571, 341);
             this.btnXacThuc.Name = "btnXacThuc";
-            this.btnXacThuc.Size = new System.Drawing.Size(191, 55);
+            this.btnXacThuc.Size = new System.Drawing.Size(143, 45);
             this.btnXacThuc.TabIndex = 14;
             this.btnXacThuc.Text = "Xác thực";
             this.btnXacThuc.Click += new System.EventHandler(this.btnXacThuc_Click);
@@ -414,10 +398,9 @@
             this.btnOK.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnOK.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.btnOK.ForeColor = System.Drawing.Color.White;
-            this.btnOK.Location = new System.Drawing.Point(761, 575);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOK.Location = new System.Drawing.Point(571, 467);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(191, 55);
+            this.btnOK.Size = new System.Drawing.Size(143, 45);
             this.btnOK.TabIndex = 14;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -431,10 +414,9 @@
             this.btnOTP.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnOTP.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.btnOTP.ForeColor = System.Drawing.Color.White;
-            this.btnOTP.Location = new System.Drawing.Point(761, 258);
-            this.btnOTP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOTP.Location = new System.Drawing.Point(571, 210);
             this.btnOTP.Name = "btnOTP";
-            this.btnOTP.Size = new System.Drawing.Size(191, 55);
+            this.btnOTP.Size = new System.Drawing.Size(143, 45);
             this.btnOTP.TabIndex = 13;
             this.btnOTP.Text = "Gửi OTP";
             this.btnOTP.Click += new System.EventHandler(this.btnOTP_Click);
@@ -443,10 +425,9 @@
             // 
             this.guna2HtmlLabel6.AutoSize = false;
             this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel6.Location = new System.Drawing.Point(409, 410);
-            this.guna2HtmlLabel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(307, 333);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(543, 1);
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(407, 1);
             this.guna2HtmlLabel6.TabIndex = 12;
             this.guna2HtmlLabel6.Text = null;
             // 
@@ -454,10 +435,9 @@
             // 
             this.guna2HtmlLabel5.AutoSize = false;
             this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(409, 246);
-            this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(307, 200);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(543, 1);
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(407, 1);
             this.guna2HtmlLabel5.TabIndex = 11;
             this.guna2HtmlLabel5.Text = null;
             // 
@@ -475,13 +455,13 @@
             this.txtEmail.ForeColor = System.Drawing.Color.Black;
             this.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEmail.IconLeft = global::QLBanHang.Properties.Resources.mail;
-            this.txtEmail.Location = new System.Drawing.Point(409, 174);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.txtEmail.Location = new System.Drawing.Point(307, 141);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PasswordChar = '\0';
             this.txtEmail.PlaceholderText = "Email";
             this.txtEmail.SelectedText = "";
-            this.txtEmail.Size = new System.Drawing.Size(543, 74);
+            this.txtEmail.Size = new System.Drawing.Size(407, 60);
             this.txtEmail.TabIndex = 10;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
@@ -489,10 +469,9 @@
             // 
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(472, 44);
-            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(354, 36);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(569, 83);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(456, 67);
             this.guna2HtmlLabel4.TabIndex = 9;
             this.guna2HtmlLabel4.Text = "Khôi phục mật khẩu";
             // 
@@ -501,9 +480,8 @@
             this.pnBackGroup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnBackGroup.Controls.Add(this.guna2PictureBox1);
             this.pnBackGroup.Location = new System.Drawing.Point(0, 0);
-            this.pnBackGroup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnBackGroup.Name = "pnBackGroup";
-            this.pnBackGroup.Size = new System.Drawing.Size(1165, 1046);
+            this.pnBackGroup.Size = new System.Drawing.Size(874, 850);
             this.pnBackGroup.TabIndex = 0;
             // 
             // guna2PictureBox1
@@ -511,9 +489,8 @@
             this.guna2PictureBox1.Image = global::QLBanHang.Properties.Resources.backgroup;
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(1161, 1046);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(871, 850);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
@@ -533,15 +510,14 @@
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1942, 1046);
+            this.ClientSize = new System.Drawing.Size(1455, 850);
             this.Controls.Add(this.pnLogin);
             this.Controls.Add(this.pnBackGroup);
             this.Controls.Add(this.pnForgotPass);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý cửa hàng";

@@ -11,6 +11,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace QLBanHang.View
 {
@@ -24,6 +25,8 @@ namespace QLBanHang.View
             InitializeComponent();
             employee = employ;
             PhanQuyen();
+            btnTrangChu_Click(this, EventArgs.Empty);
+            cboChart_SelectedIndexChanged(this, EventArgs.Empty);
         }
         
         #region Employee
@@ -370,10 +373,72 @@ namespace QLBanHang.View
             pnDanhSachNhanVien.Visible = false;
         }
         #endregion
+        #region Trang chủ
         private void btnTrangChu_Click(object sender, EventArgs e)
         {
             DisplayButton(btnTrangChu);
+            DisplayPanel(pnHome);
+            DbEmployee dbEmployee = new DbEmployee();
+            dbCustomer dbCustomer = new dbCustomer();
+            dbSell dbSell = new dbSell();
+            lbEmployeeQuantity.Text = "Số lượng nhân viên: " + dbEmployee.GetEmployeeCount();
+            lbCustomerQuantity.Text = "Số lượng khách hàng: " + dbCustomer.GetCustomerCount();
+            lbTotalDoanhThu.Text = "Doanh thu: " + dbSell.GetTotalRevenue() + "VND";
         }
+        private void DisplayChart(DataSet ds)
+        {
+
+            // Kiểm tra dữ liệu trả về từ DataSet
+            if (ds == null || ds.Tables.Count == 0 || ds.Tables[0].Rows.Count == 0)
+            {
+                MessageBox.Show("No data found.");
+                return;
+            }
+            // Xóa các series cũ trong biểu đồ
+            chart1.Series.Clear();
+            chart1.Series.Add("Doanh thu");
+            chart1.Series["Doanh thu"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                DateTime date = Convert.ToDateTime(row["DateOut"]);
+                decimal totalPrice = Convert.ToDecimal(row["TotalPrice"]);
+
+                // Chuyển đổi ngày thành chuỗi với định dạng dd/MM/yyyy
+                string formattedDate = date.ToString("dd/MM/yyyy");
+
+                // Thêm điểm vào biểu đồ
+                chart1.Series["Doanh thu"].Points.AddXY(formattedDate, totalPrice);
+            }
+
+            // Cập nhật lại biểu đồ
+            chart1.Invalidate();
+        }
+        private void cboChart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dbSell dbSell = new dbSell();
+            DataSet ds = new DataSet();
+
+            if (cboChart.SelectedIndex == 0)
+            {
+                ds = dbSell.GetSellDateDay();
+            }
+            else if (cboChart.SelectedIndex == 1)
+            {
+                ds = dbSell.GetSellDate7Day();
+            }
+            else if (cboChart.SelectedIndex == 2)
+            {
+                ds = dbSell.GetSellDateMonth();
+            }
+            else
+            {
+                ds = dbSell.GetSellDateYear();
+            }
+            DisplayChart(ds);
+        }
+
+        #endregion
         #region Đăng xuất tài khoản
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
@@ -1418,45 +1483,54 @@ namespace QLBanHang.View
             }
         }
 
-
+        void ResetHoaDonNhap()
+        {
+            txtPurchaseInvoiceID.Text = "";
+            txtProductQuantityInvoice.Text = "";
+            txtProductUnitPrice.Text = "";
+            dgvProductCart.Rows.Clear();
+        }
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            // Lấy dòng được chọn từ ComboBox (là DataRowView)
-            DataRowView selectedRow = (DataRowView)cboProductID.SelectedItem;
-
-            // Truy cập giá trị ProductID từ DataRowView
-            string productID = selectedRow["ProductID"].ToString();
-
-            // Tạo đối tượng Product từ các TextBox
-            Product product = new Product(
-                productID,
-                txtProductNameInvoice.Text,
-                txtProductCategoryName.Text,
-                txtProductSupplierName.Text,
-                Convert.ToDecimal(txtProductUnitPrice.Text),
-                int.Parse(txtProductQuantityInvoice.Text)
-            );
-
-            // Kiểm tra nếu sản phẩm đã tồn tại trong DataGridView
-            bool productExists = false;
-            foreach (DataGridViewRow row in dgvProductCart.Rows)
+            if (CheckAddProduct())
             {
-                if (row.Cells["ProductID"].Value != null && row.Cells["ProductID"].Value.ToString() == product.ProductID)
+                // Lấy dòng được chọn từ ComboBox (là DataRowView)
+                DataRowView selectedRow = (DataRowView)cboProductID.SelectedItem;
+
+                // Truy cập giá trị ProductID từ DataRowView
+                string productID = selectedRow["ProductID"].ToString();
+
+                // Tạo đối tượng Product từ các TextBox
+                Product product = new Product(
+                    productID,
+                    txtProductNameInvoice.Text,
+                    txtProductCategoryName.Text,
+                    txtProductSupplierName.Text,
+                    Convert.ToDecimal(txtProductUnitPrice.Text),
+                    int.Parse(txtProductQuantityInvoice.Text)
+                );
+
+                // Kiểm tra nếu sản phẩm đã tồn tại trong DataGridView
+                bool productExists = false;
+                foreach (DataGridViewRow row in dgvProductCart.Rows)
                 {
-                    // Nếu sản phẩm đã tồn tại, cập nhật số lượng
-                    int currentQuantity = Convert.ToInt32(row.Cells["ProductQuantity"].Value);
-                    int newQuantity = currentQuantity + product.ProductQuantity;
-                    row.Cells["ProductQuantity"].Value = newQuantity; // Cập nhật số lượng
-                    row.Cells["GetTotalPrice"].Value = newQuantity * Convert.ToDecimal(row.Cells["ProductPrice"].Value); // Cập nhật giá trị tổng
-                    productExists = true;
-                    break;
+                    if (row.Cells["ProductID"].Value != null && row.Cells["ProductID"].Value.ToString() == product.ProductID)
+                    {
+                        // Nếu sản phẩm đã tồn tại, cập nhật số lượng
+                        int currentQuantity = Convert.ToInt32(row.Cells["ProductQuantity"].Value);
+                        int newQuantity = currentQuantity + product.ProductQuantity;
+                        row.Cells["ProductQuantity"].Value = newQuantity; // Cập nhật số lượng
+                        row.Cells["GetTotalPrice"].Value = newQuantity * Convert.ToDecimal(row.Cells["ProductPrice"].Value); // Cập nhật giá trị tổng
+                        productExists = true;
+                        break;
+                    }
                 }
-            }
 
-            // Nếu sản phẩm chưa tồn tại trong DataGridView, thêm sản phẩm mới
-            if (!productExists)
-            {
-                dgvProductCart.Rows.Add(product.ProductID, product.ProductName, product.CategoryName, product.SupplierName, product.ProductPrice, product.ProductQuantity, product.GetTotalPrice());
+                // Nếu sản phẩm chưa tồn tại trong DataGridView, thêm sản phẩm mới
+                if (!productExists)
+                {
+                    dgvProductCart.Rows.Add(product.ProductID, product.ProductName, product.CategoryName, product.SupplierName, product.ProductPrice, product.ProductQuantity, product.GetTotalPrice());
+                }
             }
         }
 
@@ -1483,6 +1557,7 @@ namespace QLBanHang.View
             cboProductID.DataSource = ds.Tables[0];
             cboProductID.DisplayMember = "ProductID";
             cboProductID.ValueMember = "ProductID";
+            ResetHoaDonNhap();
         }
 
         private void txtPurchaseInvoiceID_TextChanged(object sender, EventArgs e)
@@ -1666,6 +1741,46 @@ namespace QLBanHang.View
             pnHienThiChiTietHoaDonNhap.Visible = false;
             LoadDataPurchaseInvoice();
         }
+        private void btnXoaHoaDonNhap_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn xóa hóa đơn không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                dbPurchaseInvoice dbPurchaseInvoice = new dbPurchaseInvoice();
+                dbPurchaseInvoice.DeletePurrchaseInvoice(txtMaHDNhap.Text);
+                MessageBox.Show("Xóa hóa đơn thành công!", "Thông báo");
+                pnHienThiChiTietHoaDonNhap.Visible = false;
+                LoadDataPurchaseInvoice();
+            }
+        }
+
+        private void txtFindPurchaseInvoice_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtFindPurchaseInvoice.Text))
+            {
+                LoadDataPurchaseInvoice();
+                return;
+            }
+
+            dbPurchaseInvoice dbPurchaseInvoice = new dbPurchaseInvoice();
+
+            if (cboPurchaseInvoice.SelectedIndex == 0)
+            {
+                // Tìm theo mã hóa đơn
+                DataSet ds = dbPurchaseInvoice.GetPurchaseInvoiceID(txtFindPurchaseInvoice.Text);
+                dgvPurchaseInvoice.DataSource = null;
+                dgvPurchaseInvoice.DataSource = ds.Tables[0];
+            }
+            else if (cboPurchaseInvoice.SelectedIndex == 1)
+            {
+                // Tìm theo ngày hóa đơn
+                string input = txtFindPurchaseInvoice.Text.Trim();
+
+                // Không cần chuyển đổi sang DateTime, xử lý tìm kiếm chuỗi
+                DataSet ds = dbPurchaseInvoice.GetPurchaseInvoiceDate(input);
+                dgvPurchaseInvoice.DataSource = null;
+                dgvPurchaseInvoice.DataSource = ds.Tables[0];
+            }
+        }
         #endregion
         #region Bán hàng
         bool CheckAddShoppingCart()
@@ -1720,11 +1835,19 @@ namespace QLBanHang.View
             DisplayButton(btnBanHang);
             LoadDataSell();
         }
-
+        
+        void ResetHoaDonBan()
+        {
+            txtSellID.Text = "";
+            txtSellQuantity.Text = "";
+            txtSellPrice.Text = "";
+            dgvShoppingCart.Rows.Clear();
+        }
         private void btnTaoHoaDon_Click(object sender, EventArgs e)
         {
             pnHoaDonBanHang.Visible = true;
             pnHoaDonBanHang.BringToFront();
+            ResetHoaDonBan();
             dbProduct dbProduct = new dbProduct();
             DataSet ds = dbProduct.GetProductCategoySupplierStatus();
             cboSellProductID.DataSource = null;
@@ -1737,9 +1860,8 @@ namespace QLBanHang.View
             cboSellCustomerID.DataSource = data.Tables[0];
             cboSellCustomerID.DisplayMember = "CustomerID";
             cboSellCustomerID.ValueMember = "CustomerID";
-
+            
         }
-        #endregion
 
         private void cboSellProductID_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1804,7 +1926,7 @@ namespace QLBanHang.View
                     Convert.ToDecimal(txtSellPrice.Text),
                     int.Parse(txtSellQuantity.Text)
                 );
-
+                decimal totalprice = 0;
                 // Kiểm tra nếu sản phẩm đã tồn tại trong DataGridView
                 bool productExists = false;
                 foreach (DataGridViewRow row in dgvShoppingCart.Rows)
@@ -1816,6 +1938,7 @@ namespace QLBanHang.View
                         int newQuantity = currentQuantity + product.ProductQuantity;
                         row.Cells["Quantity"].Value = newQuantity; // Cập nhật số lượng
                         row.Cells["TotalPrice"].Value = newQuantity * Convert.ToDecimal(row.Cells["PriceOut"].Value); // Cập nhật giá trị tổng
+                        totalprice += newQuantity * Convert.ToDecimal(row.Cells["PriceOut"].Value);
                         productExists = true;
                         break;
                     }
@@ -1826,6 +1949,8 @@ namespace QLBanHang.View
                 {
                     dgvShoppingCart.Rows.Add(product.ProductID, product.ProductName, product.CategoryName, product.SupplierName, product.ProductQuantity, product.ProductPrice, product.GetTotalPrice());
                 }
+
+                UpdatePrice();
             }
             
         }
@@ -1858,11 +1983,15 @@ namespace QLBanHang.View
 
         private void dgvShoppingCart_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvShoppingCart.Rows.Count > 0)
+            if (dgvShoppingCart.Rows.Count > 0 && e.RowIndex >= 0)
             {
                 cboSellProductID.SelectedValue = dgvShoppingCart.Rows[e.RowIndex].Cells[0].Value;
                 txtSellQuantity.Text = dgvShoppingCart.Rows[e.RowIndex].Cells[4].Value.ToString();
                 txtSellPrice.Text = dgvShoppingCart.Rows[e.RowIndex].Cells[5].Value.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một dòng hợp lệ.");
             }
         }
 
@@ -1940,7 +2069,9 @@ namespace QLBanHang.View
                 }
             }
             // thêm hóa đơn bán sản phẩm 
-            dbSell.InsertSell(txtSellID.Text, employee.Employeeid, customerID, totalPrice, datesell.Value);
+            
+                dbSell.InsertSell(txtSellID.Text, employee.Employeeid, customerID, decimal.Parse(lbTotalPrice.Text), datesell.Value);
+            
             foreach (DataGridViewRow row in dgvShoppingCart.Rows)
             {
                 if (!row.IsNewRow)
@@ -1965,7 +2096,151 @@ namespace QLBanHang.View
                 }
             }
             MessageBox.Show("Bán sản phẩm thành công!", "Thông báo");
+            pnHoaDonBanHang.Visible = false;
+            dgvShoppingCart.Rows.Clear();
+            ResetHoaDonBan();
+            LoadDataSell();
+        }
+        void UpdatePrice()
+        {
+            decimal TotalPrice = 0;
+            decimal totalAmount = 0;
+            int sell = 0;
+            // Kiểm tra đầu vào
+            if (string.IsNullOrWhiteSpace(txtSellProduct.Text)) // Nếu không nhập, mặc định là 0
+            {
+                sell = 0;
+            }
+            else if (!int.TryParse(txtSellProduct.Text, out sell))
+            {
+                lbCheckSellProduct.Text = "Vui lòng nhập đúng số";
+                lbCheckSellProduct.ForeColor = Color.Red;
+                lbCheckSellProduct.Visible = true;
+                return; // Dừng xử lý nếu dữ liệu không hợp lệ
+            }
+            else if (sell < 0)
+            {
+                lbCheckSellProduct.Text = "Vui lòng nhập số dương";
+                lbCheckSellProduct.ForeColor = Color.Red;
+                lbCheckSellProduct.Visible = true;
+                return;
+            }
+            else if (sell > 100)
+            {
+                lbCheckSellProduct.Text = "Vui lòng nhập số từ 0 đến 100";
+                lbCheckSellProduct.ForeColor = Color.Red;
+                lbCheckSellProduct.Visible = true;
+                return;
+            }
+            else
+            {
+                lbCheckSellProduct.Visible = false; // Ẩn thông báo lỗi nếu nhập đúng
+            }
+
+            // Tính tổng tiền giỏ hàng
+            foreach (DataGridViewRow row in dgvShoppingCart.Rows)
+            {
+                if (row.Cells["Quantity"].Value != null && row.Cells["PriceOut"].Value != null)
+                {
+                    int currentQuantity = Convert.ToInt32(row.Cells["Quantity"].Value);
+                    decimal priceOut = Convert.ToDecimal(row.Cells["PriceOut"].Value);
+
+                    // Cập nhật tổng tiền từng dòng
+                    row.Cells["TotalPrice"].Value = currentQuantity * priceOut;
+
+                    // Tích lũy tổng tiền
+                    TotalPrice += currentQuantity * priceOut;
+                }
+            }
+
+            // Nếu không nhập giảm giá hoặc nhập 0, tổng tiền là giá gốc
+            if (sell == 0)
+            {
+                totalAmount = TotalPrice;
+            }
+            else
+            {
+                // Tính tổng sau khi áp dụng giảm giá
+                decimal sellPercentage = (100 - sell) / 100m;
+                totalAmount = TotalPrice * sellPercentage;
+            }
+            // Hiển thị tổng tiền (giá gốc hoặc sau giảm giá)
+            lbTotalPrice.Text = totalAmount.ToString(); 
+        }
+
+        private void txtSellProduct_TextChanged(object sender, EventArgs e)
+        {
+            UpdatePrice();
+        }
+
+        private void txtFindSell_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtFindSell.Text))
+            {
+                LoadDataSell();
+                return;
+            }
+
+            dbSell dbSell = new dbSell();
+
+            if (cboFindSell.SelectedIndex == 0)
+            {
+                // Tìm theo mã hóa đơn
+                DataSet ds = dbSell.GetSellID(txtFindSell.Text);
+                dgvDanhSachHoaDonBan.DataSource = null;
+                dgvDanhSachHoaDonBan.DataSource = ds.Tables[0];
+            }
+            else if (cboFindSell.SelectedIndex == 1)
+            {
+                // Tìm theo ngày hóa đơn
+                string input = txtFindSell.Text.Trim();
+
+                // Không cần chuyển đổi sang DateTime, xử lý tìm kiếm chuỗi
+                DataSet ds = dbSell.GetSellDate(input);
+                dgvDanhSachHoaDonBan.DataSource = null;
+                dgvDanhSachHoaDonBan.DataSource = ds.Tables[0];
+            }
+        }
+
+        private void dgvDanhSachHoaDonBan_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >= 0)
+            {
+                pnChiTietHoaDonBanHang.Visible = true;
+                pnChiTietHoaDonBanHang.BringToFront();
+                txtMaHDBan.Text = dgvDanhSachHoaDonBan.Rows[e.RowIndex].Cells[0].Value.ToString();
+                dbSellDetail dbSellDetail = new dbSellDetail();
+                dgvChiTietHoaDonBan.DataSource = null;
+                DataSet ds = dbSellDetail.GetSellDetail(txtMaHDBan.Text);
+                dgvChiTietHoaDonBan.DataSource = ds.Tables[0];
+            }
 
         }
+
+        private void btnDeleteSell_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Bạn có muốn xóa hóa đơn?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                dbSell dbSell = new dbSell();
+                dbSell.DeleteSell(txtMaHDBan.Text);
+                MessageBox.Show("Xóa thành công!", "Thông báo");
+                pnChiTietHoaDonBanHang.Visible = false;
+                LoadDataSell();
+            }
+        }
+
+        private void ptbCloseSellDetail_Click(object sender, EventArgs e)
+        {
+            pnChiTietHoaDonBanHang.Visible = false;
+            LoadDataSell();
+        }
+
+        private void btnCancelShoppingcart_Click(object sender, EventArgs e)
+        {
+            pnHoaDonBanHang.Visible = false;
+        }
+        #endregion
+
+        
     }
 }

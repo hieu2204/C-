@@ -159,5 +159,29 @@ namespace QLBanHang.Controller
             return ds;
         }
         #endregion
+        #region Lấy số lượng khách hàng
+        public int GetCustomerCount()
+        {
+            int count = 0;
+            SqlConnection dbConnect = connect.GetConnect();
+            string sql = "SELECT COUNT(*) FROM Customers"; 
+            try
+            {
+                dbConnect.Open();
+                SqlCommand cmd = new SqlCommand(sql, dbConnect);
+                count = (int)cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi lấy số lượng khách hàng: " + ex.Message);
+            }
+            finally
+            {
+                dbConnect.Close();
+            }
+            return count;
+        }
+
+        #endregion
     }
 }
